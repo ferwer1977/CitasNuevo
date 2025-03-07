@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -17,10 +17,18 @@
         .disponible {
             background-color: #e0f7fa;
         }
+        .bienvenida {
+            background-color: #f0f8ff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>Sistema de Citas Dental</h1>
+    <div class="bienvenida">
+        <h1>¡Bienvenido a la Clínica Dental Sonrisa Perfecta!</h1>
+        <p>Aquí puedes reservar tu cita de manera rápida y sencilla. Selecciona la fecha, hora y tratamiento que necesitas, y completa tus datos. ¡Te esperamos!</p>
+    </div>
 
     <div id="citas-disponibles">
         <h2>Citas Disponibles</h2>
@@ -36,9 +44,13 @@
         <input type="time" id="hora" required><br><br>
         <label for="tratamiento">Tratamiento:</label>
         <select id="tratamiento" required>
-            <option value="limpieza">Limpieza</option>
-            <option value="extraccion">Extracción</option>
+            <option value="limpieza">Limpieza Dental</option>
+            <option value="extraccion">Extracción Dental</option>
             <option value="ortodoncia">Ortodoncia</option>
+            <option value="implante">Implante Dental</option>
+            <option value="blanqueamiento">Blanqueamiento Dental</option>
+            <option value="endodoncia">Endodoncia</option>
+            <option value="protesis">Prótesis Dental</option>
         </select><br><br>
         <button type="submit">Reservar</button>
     </form>
@@ -51,6 +63,8 @@
             { fecha: '2024-07-10', hora: '10:00', disponible: true },
             { fecha: '2024-07-10', hora: '11:00', disponible: true },
             { fecha: '2024-07-11', hora: '14:00', disponible: true },
+            { fecha: '2024-07-12', hora: '16:00', disponible: true },
+            { fecha: '2024-07-13', hora: '09:00', disponible: true },
         ];
 
         function mostrarDisponibilidad() {
