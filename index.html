@@ -55,15 +55,15 @@
         function generarDisponibilidad(fechaInicio) {
             const citas = [];
             let fecha = new Date(fechaInicio);
-            for (let i = 0; i < 7; i++) { // Generar disponibilidad para 7 días
+            for (let i = 0; i < 7; i++) {
                 const fechaStr = fecha.toISOString().split('T')[0];
-                for (let hora = 9; hora <= 17; hora++) { // Horario de 9 a 17 horas
-                    if (hora !== 13) { // Excluir la hora de la comida (13 horas)
+                for (let hora = 9; hora <= 17; hora++) {
+                    if (hora !== 13) {
                         const horaStr = hora < 10 ? `0${hora}:00` : `${hora}:00`;
                         citas.push({ fecha: fechaStr, hora: horaStr, disponible: true });
                     }
                 }
-                fecha.setDate(fecha.getDate() + 1); // Avanzar al siguiente día
+                fecha.setDate(fecha.getDate() + 1);
             }
             return citas;
         }
@@ -79,9 +79,9 @@
             const hora = document.getElementById('hora').value;
             const tratamiento = document.getElementById('tratamiento').value;
 
-            const index = disponibilidad.findIndex(cita => cita.fecha === fecha && cita.hora === hora);
-            if (index !== -1 && disponibilidad[index].disponible) {
-                disponibilidad[index].disponible = false;
+            const citaSeleccionada = disponibilidad.find(cita => cita.fecha === fecha && cita.hora === hora);
+            if (citaSeleccionada && citaSeleccionada.disponible) {
+                citaSeleccionada.disponible = false;
                 alert(`Cita reservada para ${nombre} el ${fecha} a las ${hora} para ${tratamiento}.`);
             } else {
                 alert('La cita seleccionada no está disponible.');
